@@ -31,3 +31,5 @@ Reading Section
 API Integration
   - Utilizes the Mangadex API to fetch manga data
   - Ensures accurate and up-to-date information
+
+![screenshort_1]('https://github.com/muthuraj107/MangaReader/img/Screenshot 2024-09-18 205943.png')
