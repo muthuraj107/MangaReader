@@ -32,4 +32,8 @@ API Integration
   - Utilizes the Mangadex API to fetch manga data
   - Ensures accurate and up-to-date information
 
-![screenshort_1]('https://github.com/muthuraj107/MangaReader/img/Screenshot 2024-09-18 205943.png')
+### ScreenShort
+![screenshort_1](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%202024-09-18%20205943.png)
+![screenshort_2](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%2024-09-18%210005.png)
+![screenshort_3](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%.png)
+
