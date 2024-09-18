@@ -1,0 +1,42 @@
+import React,{useState,useEffect} from 'react'
+import axios from 'axios'
+export default function Manga() {
+
+    const [mangaData, setMangaData] = useState([]);
+    const token =
+      "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHSHg0Qmk2THhvdVRGLWZuQmg0WXhMbUtUbGZzT2tmTm9fQ05yT1pMZHNrIn0.eyJleHAiOjE3MjY0NTkyMDEsImlhdCI6MTcyNjQ1ODMwMSwianRpIjoiZGY1ZDI1YmUtMzExMS00NTA4LThmOGMtMDhlYmM1NzRhNWI4IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLm1hbmdhZGV4Lm9yZy9yZWFsbXMvbWFuZ2FkZXgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGVyc29uYWwtY2xpZW50LTA2Mzc0ODQ4LTlmODgtNDNiYS1hNThiLWVmZjQ4ZTAzYjUwMi1kYjU5ZjcyMiIsInNlc3Npb25fc3RhdGUiOiIyZjA0NDEyZS01OTg0LTQwYzUtYWUzOC05NWVlOTIxNjY5NWMiLCJhY3IiOiIxIiwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZ3JvdXBzIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiIyZjA0NDEyZS01OTg0LTQwYzUtYWUzOC05NWVlOTIxNjY5NWMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicm9sZXMiOlsiUk9MRV9VU0VSIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbWFuZ2FkZXgiXSwiZ3JvdXBzIjpbIkdST1VQX1VTRVIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoia2FrYXJvdG1pc3kiLCJjbGllbnRfdHlwZSI6InBlcnNvbmFsIiwib2lkIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwiZW1haWwiOiJtdXRodXJhamx1Y2lmZXJAZ21haWwuY29tIn0.p9TZ5c2-kF5BwlEnYWB_lBBUm74FsKgSZ0hABqeV2ykP8FBPYSnJKxVBp8UoW6hmEQb-US16HXxh-npmPHNzHE0VPgu0tGp2wUAUARNWXDbWHU5mXoy2CP0-nqxfDtYLSOlDfeYu3m1Wq_LI00DcfPil-Z3d6SolSFyQHUOaXq7733ceYy59-ms29TtYPwO1VFHXuVcjhod6m_XAgYMwuG1j9YuNum2z7HXQd0--U9ub858kgI1j9sEPzXWw_dmocago9xrvWUnR8VqEXVF5fkTqqhIaAwPOXi_LMK7zzF5EXB-xhtWzA_DG-zxPeWB8e8s6EzoRi-xCukxXjmsuVg";
+      //"weyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHSHg0Qmk2THhvdVRGLWZuQmg0WXhMbUtUbGZzT2tmTm9fQ05yT1pMZHNrIn0.eyJleHAiOjE3MjYzNzU3NTUsImlhdCI6MTcyNjM3NDg1NSwianRpIjoiNDYxNDM4NWItODZhZi00NDlkLWEyYjYtOWZhODczYjdiZTdjIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLm1hbmdhZGV4Lm9yZy9yZWFsbXMvbWFuZ2FkZXgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGVyc29uYWwtY2xpZW50LTA2Mzc0ODQ4LTlmODgtNDNiYS1hNThiLWVmZjQ4ZTAzYjUwMi1kYjU5ZjcyMiIsInNlc3Npb25fc3RhdGUiOiI1MWRjOTA0MC0zYzAyLTQwZjMtYmY0Mi1kMTAxN2EzMjJlNTIiLCJhY3IiOiIxIiwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZ3JvdXBzIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI1MWRjOTA0MC0zYzAyLTQwZjMtYmY0Mi1kMTAxN2EzMjJlNTIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicm9sZXMiOlsiUk9MRV9VU0VSIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbWFuZ2FkZXgiXSwiZ3JvdXBzIjpbIkdST1VQX1VTRVIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoia2FrYXJvdG1pc3kiLCJjbGllbnRfdHlwZSI6InBlcnNvbmFsIiwib2lkIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwiZW1haWwiOiJtdXRodXJhamx1Y2lmZXJAZ21haWwuY29tIn0.Hc_B_DuM_lfYCiw2GysvJVYi1AzPjTFZwbEzPiVqPNqUr-9weBEZqI2YAEaGu_S6z1JTmz_YtEzxfExmWVidoVTyqoCzeQucPvmGmH4J7esPiQI2wSvnl2aa94iIzFQ8nS7Qwjmr7F4b3CbMVbnWYdTo4NZejmPoWVYS1pJBQ-q2XiL82_TQDIfozfnoTaFXFj2Lnu5Meot987rzuz5_YtsdIlFNeEWKTw_1cqk8ilHxNkmLoZwfFDevMynU7H9AhzXe-n35--3ZW_nB3RR8XREXxSJOQpe4YRsQBz0ZTo8K6bFSf2TFHcBq_PFKMKwQEdzBTgEj_n9R7Aqy8dZxUQ"; 
+     
+    // "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHSHg0Qmk2THhvdVRGLWZuQmg0WXhMbUtUbGZzT2tmTm9fQ05yT1pMZHNrIn0.eyJleHAiOjE3MjYwNTE1NDIsImlhdCI6MTcyNjA1MDY0MiwianRpIjoiOGZiODYyZDEtYTA5OC00YjJkLWJiZDEtYjhhMjJmZTg2ZWM1IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLm1hbmdhZGV4Lm9yZy9yZWFsbXMvbWFuZ2FkZXgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGVyc29uYWwtY2xpZW50LTA2Mzc0ODQ4LTlmODgtNDNiYS1hNThiLWVmZjQ4ZTAzYjUwMi1kYjU5ZjcyMiIsInNlc3Npb25fc3RhdGUiOiI2M2FiMGMyNS05NDI0LTRjYmMtOGRiNy1lNGM4ZmU0ZTg2NzYiLCJhY3IiOiIxIiwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZ3JvdXBzIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI2M2FiMGMyNS05NDI0LTRjYmMtOGRiNy1lNGM4ZmU0ZTg2NzYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicm9sZXMiOlsiUk9MRV9VU0VSIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbWFuZ2FkZXgiXSwiZ3JvdXBzIjpbIkdST1VQX1VTRVIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoia2FrYXJvdG1pc3kiLCJjbGllbnRfdHlwZSI6InBlcnNvbmFsIiwib2lkIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwiZW1haWwiOiJtdXRodXJhamx1Y2lmZXJAZ21haWwuY29tIn0.gIoDsSd7dE1AuTTaI220-FRSiSaD8zrMgfSVzhqDLjWdT5Q11qVk0dglsfGqM1KOTF413CYodHr8S7-i8nnRFkbE9IXvcmDdFnQi1cgBtfkpKTpCHPMidMFcFH17lS4bkdKb6fy4kpwbDhCvZ7nk8vumO2uY5nfOrL1qK6u7B1uNH1P1BJ_pDqPHlfQwUOKYDaybxt-pB1I_x7nemNlk6eYBDC8QS8S7E9y5Z4EJ4K-WW74NYenSIiGsON7FiWQf8MIKCa3fGkaH1bXCqlDw0GG3brPhFKmWBQKga66O-bRsJxn-5nhKSLw3I4JA9NVasryCVuIZ_tD3R1q-dq3YiA";
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            "https://api.mangadex.org/manga",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                // Replace with your actual access token
+              },
+            },
+            {
+              withCredentials: true,
+            }
+          );
+          setMangaData(response.data.data);
+          
+        } catch (error) {
+          console.error("Error fetching manga data:", error);
+        }
+      };
+
+      fetchData();
+    }, []);
+          console.log(mangaData);
+
+  return (
+    <div>
+      
+    </div>
+  );
+}

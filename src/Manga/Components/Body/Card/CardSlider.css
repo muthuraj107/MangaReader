@@ -1,0 +1,105 @@
+.cardSlider {
+  position: relative;
+  overflow: hidden;
+    background-color: rgba(30, 30, 30,0.8);
+
+  padding: 30px 0;
+  border-radius: 20px;
+
+  /* background: linear-gradient(to top, #ff0844 0%, #ffb199 100%); */
+  /* background-color: rgba(225, 0, 0,0.3); */
+}
+
+button {
+  border: none;
+  padding: 0.55rem;
+  background-color: rgba(225, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 20px;
+}
+
+.prev-btn {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.next-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.slider {
+  width: 90vw;
+  
+  margin: 0 20px;
+  display: flex;
+
+  transition: transform 0.3s ease-out;
+}
+
+.slidercard {
+  display: flex;
+}
+@media only screen and (min-width: 340px) and (max-width: 760px) {
+  .cardSlider button{
+    display: none;
+  }
+ 
+  .cardSlider{
+     /* width: 190px; */
+
+    /* height: 250px; */
+
+  border-radius: 0px;
+    /* overflow-x: scroll; */
+    padding: 11px 20px;
+    /* scrollbar-width: none; */
+     background-color: rgba(30, 30, 30,0.8);
+ 
+/* all:unset; */
+  }
+  .slider{
+  /* margin-left: 20px; */
+      
+  /* all:unset; */
+  /* width: 40vw; */
+  /* width: 200px; */
+  height: auto;
+  margin: 0;
+        
+ 
+  }
+
+  .slidercard{
+    /* width: 400px; */
+  margin: 0;
+     display: grid;
+     /* flex-direction: row; */
+     /* scroll-snap-type: x mandatory; */
+     /* justify-self :center; */
+     grid-template-columns: 1fr 1fr;
+     justify-content: center;
+     align-content: center;
+  }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 1280px) {
+}
+

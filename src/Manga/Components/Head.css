@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.head {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../Img/ahh.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  position: relative;
+  background-attachment: fixed;
+}
+.banner {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Catamaran", sans-serif;
+}
+.banner h5 {
+  font-size: 18px;
+  /* color:#Add8e6; */
+  color: #808080;
+  animation: slideFromRight 5s ease-in-out 1;
+}
+.banner h1 {
+  /* color:rgba(225,0,0,0.6); */
+  /* color: #ff8c00; */
+  /* color: #008080; */
+  color: #c0c0c0;
+  text-transform: uppercase;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1px;
+  font-size: 2rem;
+  animation: slideFromLeft 5s ease-in-out 1;
+}
+.btn {
+  color: rgba(225, 225, 225, 1);
+  text-transform: uppercase;
+  /* padding: 0.75rem 1rem; */
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  background-color: rgba(225, 20, 40, 0.5);
+  /* background-color: #008089; */
+  outline: 0.125rem solid rgba(225, 20, 20, 0.5);
+  outline-offset: 0.25rem;
+  padding: 1rem 1.75rem;
+  animation: bounce 2s ease infinite;
+}
+.btn:hover {
+  background-color: rgba(225, 10, 10, 0.3);
+}
+.nav-head{
+  margin-top: 0.756rem;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(200px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(-50px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-200px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(50px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 340px) and (max-width: 760px) {
+  .head {
+    background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('.././Img/Newfolder/2121.jpg') no-repeat center center fixed;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    overflow-x: hidden;
+    position: relative;
+    height: 60vh;
+    
+    
+      /* position: relative; */
+  }
+ 
+  .btn {
+    animation: none;
+    font-size: 16px;
+    padding: 0.55rem 0.75rem;
+  }
+  .banner h1 {
+    font-size: 20px;
+    animation: none;
+  margin-top: 0.75rem;
+margin-bottom: 1rem;
+  }
+  .banner h5 {
+
+    font-size: 16px;
+    animation: none;
+  }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 1280px) {
+}

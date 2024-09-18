@@ -1,0 +1,134 @@
+.card {
+  width: 50%;
+  height: 224px;
+  color: #c0c0c0;
+  /* border-radius: 10px; */
+  margin: 0 1rem;
+  display: block;
+  overflow: hidden;
+  margin-left: 1.22rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card figure {
+  width: 200px;
+  height: 200px;
+}
+.card figure img {
+  object-fit: cover;
+  width: 150px;
+  height: 190px;
+}
+.mangadisp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0px;
+  width: 146px;
+  height: 185.9px;
+
+  /* z-index: 11; */
+  cursor: grab;
+  padding: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  z-index: 99;
+  opacity: 0;
+  transform: scale(1);
+  transition-delay: 1ms;
+  color: #000;
+  text-align: center;
+  overflow: hidden;
+  transition: all 90ms ease-out;
+}
+.mangadisp:hover,
+.manga_img:hover {
+  opacity: 1;
+  transform: scale(1.06);
+}
+.mangadisp p {
+  text-transform: capitalize;
+  font-size: 20px;
+  position: relative;
+  top: 30px;
+  color: whitesmoke;
+  word-wrap: break-word;
+
+}
+.mangadisp a {
+  position: relative;
+  top: 100px;
+  text-decoration: none;
+  color: red;
+  padding: 5px;
+  border-radius: 10px;
+}
+@media only screen and (min-width: 340px) and (max-width: 760px) {
+
+  .card{
+    width: 200px;
+    height: auto;
+   scroll-snap-type: x mandatory;
+   display: unset;
+   margin: 0;
+      padding-left: 2px;
+
+
+
+}
+  .manga_title {
+    font-size: 14px;
+  }
+  .card figure {
+    /* width: 250px; */
+    height: auto;
+    padding: 20px 0;
+         scroll-snap-type: x mandatory;
+
+  }
+  .card figure img {
+width: auto;
+  }
+
+  .mangadisp{
+    all: unset ;
+    /* padding:  */
+     
+  }
+  .mangadisp p{
+    all: unset;
+    display: none;
+  }
+  .mangadisp a{
+    all: unset;
+    text-align: center;
+  }
+  .manga_img:hover{
+    all: unset;
+  }
+  .mangadisp:hover {
+    all: unset;
+    cursor: pointer;
+    color: #000;
+    background-color: transparent;
+    /* transform: none;
+    opacity: 1;
+  color: #000;
+background-color: transparent;
+    transform: scale(1);
+    background: transparent; */
+  }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 1280px) {
+}

@@ -1,0 +1,43 @@
+.back-btn-2{
+    width: 40px;
+    height: 30px;
+position: absolute;
+top: 10px;
+}
+.read-main p{
+    font-size: 20px;
+    text-align: center;
+    margin:  10px 0;
+}
+/* .images{
+    margin: 0 auto;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100vh;
+}
+.images img{
+    width: 500px;
+    height: 700px;
+} */
+ .images{  
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: rgb(20, 20, 20);
+    
+ }
+@media only screen and (min-width: 340px) and (max-width: 760px) {
+    #body{
+        all: unset !important;
+    }
+   .images{
+    width: 100%;
+    height: 1000px;
+   }
+   .images img{
+  object-fit: contain;
+   }
+    
+}

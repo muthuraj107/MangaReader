@@ -1,0 +1,14 @@
+/* body{
+    background: rgb(172,28,28);
+background: linear-gradient(0deg, rgba(172,28,28,1) 16%, rgba(253,0,0,1) 100%);
+} */
+body {
+ /* background:  linear-gradient(to bottom, #2F4F7F, #66CCCC); */
+  background-color: rgb(0, 0, 0, 0.9);
+  /* background: linear-gradient(to bottom, #FFC67D, #FF99CC, #FF69B4, #FF33CC);
+   */
+   /* background: linear-gradient(to bottom, #33CCFF, #66CCCC, #99CCFF, #CCFFFF);
+    */
+    /* background: linear-gradient(to bottom, #FFA07A, #FFC080, #FFD700, #F2C464); */
+  color: #ddd;
+}

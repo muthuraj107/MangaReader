@@ -1,0 +1,197 @@
+:root {
+  --color: whitesmoke;
+  --black: black;
+  --font-size-md: 19px;
+  --font-sixe-sm: 12px;
+  --font-size-lg: 25px;
+  --link: #d4d4d6;
+}
+
+.nav-section {
+  display: flex;
+
+  align-items: center;
+  width: 100%;
+  margin-top: 0.766rem;
+}
+.Head__title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  color: #d4d4d6;
+  font-weight: bolder;
+  font-size: var(--font-size-lg);
+  margin: 0 20px;
+}
+.Head__title a{
+  text-decoration: none;
+  color: inherit;
+}
+.header__nav {
+  display: flex;
+  justify-content: center;
+}
+figure img {
+  width: 40px;
+  height: 40px;
+  padding: 0%;
+  margin: 0%;
+}
+.Nav {
+  display: flex;
+  align-items: center;
+}
+.Nav ul {
+  display: flex;
+}
+ul li {
+  padding: 0 30px;
+  list-style-type: none;
+  transition: color 0.3s ease-in-out;
+}
+ul li a {
+  /* color: rgba(192, 192, 192,0.9);
+ */
+  color: #fef6ef;
+  text-decoration: none;
+  font-size: var(--font-size-md);
+}
+ul li a:hover {
+  color: rgb(192, 192, 192);
+  text-shadow: 0px 0px 1px rgb(192, 192, 192);
+}
+/* humburger menu */
+.checkboxs{
+  display: none;
+}
+.humburger-line{
+  display: none;
+}
+.line{
+  display: none;
+}
+
+/* Small devices such as large phones (540px and up) */
+@media only screen and (min-width: 340px) and (max-width: 760px) {
+ .nav-section{
+  position: relative;
+margin: 0; 
+}
+
+ .Nav{
+  all: unset;
+  margin: 0;
+  position: absolute;
+ height: 216px;
+ width: 100px;
+  top:0px;
+  left: 0px;
+ padding: 20px;
+ margin: 0;
+ /* background-color: black; */
+ transform: translate(-100%);
+ transition: transform 1s ease-in-out;
+ z-index: 1;
+}
+ .Nav ul {
+  all: unset;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+height: 100%;
+ }
+ .Nav ul li{
+  padding: 12px;
+  display:inline-block;
+ }
+ .Nav ul li a:hover{
+  color:#ccc;
+  /* background-color: #d4d4d6; */
+ }
+   .logo img {
+  width: 20px;
+  height: 20px;
+  }
+  .header__nav{width: 100%;
+justify-content: start;}
+  .Head__title {
+    padding: 0%;
+    font-size: 19px;
+    margin:  0 10px;
+
+    
+    
+  }
+
+  /* humburger */
+.checkboxs{
+  position: absolute;
+   top: 20px;
+  left: 15px;
+  width: 29px;
+  height: 30px;
+  opacity: 0;
+  cursor: pointer;
+display: block;
+  z-index: 5;
+
+}
+.nav-section .humburger-line{
+  display: block;
+  height: 20px;
+  width: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 14px;
+  z-index: 2;
+}
+.line{
+ display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+}
+.humburger-line .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+.humburger-line .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+.humburger-line .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+#toggler:checked ~ .humburger-line .line1 {
+  transform: rotate(45deg);
+}
+
+#toggler:checked ~ .humburger-line .line2 {
+  transform: scaleY(0);
+}
+
+#toggler:checked ~ .humburger-line .line3 {
+  transform: rotate(-45deg);
+}
+#toggler:checked ~ .Nav{
+  transform: translate(0);
+}
+
+}
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 1280px) {
+}
