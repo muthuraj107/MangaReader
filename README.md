@@ -34,6 +34,13 @@ API Integration
 
 ### ScreenShort
 ![screenshort_1](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%202024-09-18%20205943.png)
-![screenshort_2](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%2024-09-18%210005.png)
-![screenshort_3](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%.png)
+
+![screenshort_2](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%202024-09-18%20210005.png)
+
+![screenshort_3](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%202024-09-18%20210104.png)
+
+![screenshort_4](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%202024-09-18%20210226.png)
+
+![screenshort_5](https://github.com/muthuraj107/MangaReader/blob/main/img/Screenshot%202024-09-18%20210251.png)
+
 
