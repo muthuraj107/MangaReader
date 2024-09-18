@@ -1,4 +1,4 @@
-# Mangakakarot MangaReader
+# Mangakakarot 
 
 Mangakakarot MangaReader is a React-based manga reader application that utilizes the Mangadex API to provide users with a seamless reading experience. This application allows users to browse and read their favorite manga titles, with features such as:
 
