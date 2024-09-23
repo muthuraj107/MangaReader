@@ -10,17 +10,14 @@ export default function MangaPage() {
   let { mangaTitle } = useParams();
   let { mangaID } = useParams();
   console.log(mangaTitle,mangaID);
-   const token =
-     "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHSHg0Qmk2THhvdVRGLWZuQmg0WXhMbUtUbGZzT2tmTm9fQ05yT1pMZHNrIn0.eyJleHAiOjE3MjY2NjgxNzIsImlhdCI6MTcyNjY2NzI3MiwianRpIjoiMGMwODZjYzEtZDU1ZS00NWI0LWJkODQtM2JlMmFhZjUyMjUyIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLm1hbmdhZGV4Lm9yZy9yZWFsbXMvbWFuZ2FkZXgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGVyc29uYWwtY2xpZW50LTA2Mzc0ODQ4LTlmODgtNDNiYS1hNThiLWVmZjQ4ZTAzYjUwMi1kYjU5ZjcyMiIsInNlc3Npb25fc3RhdGUiOiJhYWQxYmRlNi0wYjQyLTQ0NjEtOGQ5MS1kMzg0OWZhMDFiZGQiLCJhY3IiOiIxIiwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZ3JvdXBzIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiJhYWQxYmRlNi0wYjQyLTQ0NjEtOGQ5MS1kMzg0OWZhMDFiZGQiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicm9sZXMiOlsiUk9MRV9VU0VSIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbWFuZ2FkZXgiXSwiZ3JvdXBzIjpbIkdST1VQX1VTRVIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoia2FrYXJvdG1pc3kiLCJjbGllbnRfdHlwZSI6InBlcnNvbmFsIiwib2lkIjoiMDYzNzQ4NDgtOWY4OC00M2JhLWE1OGItZWZmNDhlMDNiNTAyIiwiZW1haWwiOiJtdXRodXJhamx1Y2lmZXJAZ21haWwuY29tIn0.X3x0WkeVu68ivGoq5BBYIJcaej3FW7OAdBYh9ZKqsqJc0XcTCnkTaccTyGdHerFllti8ZtMdJhtr071HF8n96sGzH_zNa_SSb8gsfVaHq7IYSbxaSy8kBq9MdR0ygjEMRyqSOuP82d5twyv7VO7qPUFZ8MBCQ2bIrM-oKoO7n346CeXQl6QXSEuH7KEV1c24GBJaEHeiSPdyWXzPvalzb_IUeUxniPu5WJVm5CvHSxCD0Uolm3zoi_NhjH-sVG5dJmvZXdxG6NJEe-rkyqk6YPr8z1baygOv_1UtCZptWcL0znXPG9E9NwjuptiwtpqWTSVKjdFo2NUEOm4yjJG5dA";
   
   const fetchVolumesChaptersData = async (languageSelected) => {
     try {
       await axios({
         method: "get",
-        url: `https://thingproxy.freeboard.io/fetch/https://api.mangadex.org/manga/${mangaID}/aggregate?translatedLanguage%5B%5D=${languageSelected}`,
+        url: `https://api.mangadex.org/manga/${mangaID}/aggregate?translatedLanguage%5B%5D=${languageSelected}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
       })
         .then((res) => setVolumeChaptersData(res.data.volumes))
@@ -34,10 +31,9 @@ export default function MangaPage() {
     try {
       await axios({
         method: "get",
-        url: `https://thingproxy.freeboard.io/fetch/https://api.mangadex.org/manga/${mangaID}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author`,
+        url: `https://api.mangadex.org/manga/${mangaID}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author`,
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
         },
       })
         .then((res) => setMangaData(res.data.data))
